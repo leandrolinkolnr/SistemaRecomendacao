@@ -3,13 +3,17 @@ package main;
 import java.io.File;
 import java.util.ArrayList;
 
+import model.User;
+import model.Objeto;
+
+import controller.ManipularTxt;
+
 public class main {
     
   static ArrayList<User> listaUsers = new ArrayList<>();
   static ArrayList<Objeto> listaObjs = new ArrayList<>();
 
   public static void main(String[] args) {
-
    
     String urlUSER = "C:\\Users\\leand\\Downloads\\dados_users.csv"; // caminho do arquivo
     String urlOBJ = "C:\\Users\\leand\\Downloads\\dados_objetos.csv"; // caminho do arquivo

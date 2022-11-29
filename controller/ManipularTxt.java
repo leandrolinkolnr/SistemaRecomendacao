@@ -21,7 +21,6 @@ public File abrirArquivo(String path) {
 }
 
 
-
 public ArrayList<String> lerArquivo(File file) {
     FileReader ler;
     

@@ -12,4 +12,16 @@ public class Objeto {
         this.area = area;
         this.formato = formato;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public String getFormato() {
+        return formato;
+    }
 }
