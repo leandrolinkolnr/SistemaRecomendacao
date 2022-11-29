@@ -54,7 +54,6 @@ public class main {
 }
 
 
-
   private static void criarOBJ(String nome, String area, String formato) {
     Objeto obj = new Objeto(nome, area, formato);
     listaObjs.add(obj);
