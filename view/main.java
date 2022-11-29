@@ -12,7 +12,7 @@ public class main {
     
   static ArrayList<User> listaUsers = new ArrayList<>();
   static ArrayList<Objeto> listaObjs = new ArrayList<>();
-  static ArrayList<Objeto> recomendacoes = new ArrayList<>();
+  
 
   public static void main(String[] args) {
    
@@ -43,9 +43,9 @@ public class main {
 
       recomenda();
 
-      for (Objeto objeto : recomendacoes) {
-        System.out.println(objeto.getArea() + "  -  " + objeto.getFormato());
-      } // cada user tem que ter uma lista de recomendacoes particular, de pref la no model
+      for (User user: listaUsers) {
+        user.listaRecomendacoes();
+      } 
 }
 
 
@@ -67,11 +67,9 @@ public class main {
 
     for (User user : listaUsers) {
       
-
       for (Objeto objeto : listaObjs) {
         if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1())  & objeto.getFormato().equalsIgnoreCase(user.getFormatoPreferido())) {
-          recomendacoes.add(objeto);
-          System.out.println(user.getNome());
+         user.adicionaRecomendacao(objeto);
         }
       }
     }
