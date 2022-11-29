@@ -12,6 +12,7 @@ public class main {
     
   static ArrayList<User> listaUsers = new ArrayList<>();
   static ArrayList<Objeto> listaObjs = new ArrayList<>();
+  static ArrayList<Objeto> recomendacoes = new ArrayList<>();
 
   public static void main(String[] args) {
    
@@ -28,30 +29,26 @@ public class main {
 		ArrayList<String> conteudo_obj = manipulador.lerArquivo(arquivo_obj);
 
 
-    //Leitura e inserção dos usuarios
+    //Leitura e inserção dos dados nas listas
 
       for (String string : conteudo_user) {
         String[] palavra = string.split(",");
         criarUser(palavra[0], palavra[1], palavra[2], palavra[3], palavra[4]);
       }
 
-      for (User user : listaUsers) {
-        System.out.println(user.getNome());
-      }
-
-      //Leitura e inserção dos objetos
-
       for (String string : conteudo_obj) {
         String[] palavra = string.split(",");
         criarOBJ(palavra[0], palavra[1], palavra[2]);
       }
 
-      for (Objeto obj : listaObjs) {
-        System.out.println(obj.getNome());
-      }
-      
+      recomenda();
 
+      for (Objeto objeto : recomendacoes) {
+        System.out.println(objeto.getArea() + "  -  " + objeto.getFormato());
+      } // cada user tem que ter uma lista de recomendacoes particular, de pref la no model
 }
+
+
 
 
   private static void criarOBJ(String nome, String area, String formato) {
@@ -63,4 +60,23 @@ public class main {
   private static void criarUser(String nome, String id, String preferencia1, String preferencia2, String formato) {
     User user = new User(nome, id, preferencia1, preferencia2, formato);
     listaUsers.add(user);
-  }}
+  }
+
+
+  private static void recomenda(){
+
+    for (User user : listaUsers) {
+      
+
+      for (Objeto objeto : listaObjs) {
+        if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1())  & objeto.getFormato().equalsIgnoreCase(user.getFormatoPreferido())) {
+          recomendacoes.add(objeto);
+          System.out.println(user.getNome());
+        }
+      }
+    }
+  }
+
+
+
+}
