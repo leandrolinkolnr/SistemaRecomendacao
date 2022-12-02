@@ -40,6 +40,14 @@ public class User {
         recomendacoes.add(obj);
     }
 
+    public int getSizeRecomendacoes() {
+        return recomendacoes.size();
+    }
+
+    public ArrayList<Objeto> getRecomendacoes() {
+        return recomendacoes;
+    }
+
     public void listaRecomendacoes(){
         System.out.println("Recomendacoes para o usuario " + nome + ": ");
         for (Objeto objeto : recomendacoes) {

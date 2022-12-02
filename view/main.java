@@ -3,10 +3,11 @@ package main;
 import java.io.File;
 import java.util.ArrayList;
 
-import model.User;
+import model.User.*;
 import model.Objeto;
 
 import controller.ManipularTxt;
+
 
 public class main {
     
@@ -49,8 +50,6 @@ public class main {
 }
 
 
-
-
   private static void criarOBJ(String nome, String area, String formato) {
     Objeto obj = new Objeto(nome, area, formato);
     listaObjs.add(obj);
@@ -68,13 +67,17 @@ public class main {
     for (User user : listaUsers) {
       
       for (Objeto objeto : listaObjs) {
-        if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1())  & objeto.getFormato().equalsIgnoreCase(user.getFormatoPreferido())) {
-         user.adicionaRecomendacao(objeto);
-        }
+
+            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1()) & objeto.getFormato().equalsIgnoreCase(user.getFormatoPreferido()) & 
+            user.getRecomendacoes().size() < 4) {
+                                                 user.adicionaRecomendacao(objeto);}
+      }
+
+      for (Objeto objeto : listaObjs) {
+            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1()) & user.getRecomendacoes().size() < 4 & ! user.getRecomendacoes().contains(objeto) ) {
+            user.adicionaRecomendacao(objeto);}
+            
       }
     }
   }
-
-
-
 }
