@@ -46,6 +46,7 @@ public class main {
 
       recomenda();
 
+
       for (User user: listaUsers) {
         user.listaRecomendacoes();
       } 
@@ -67,7 +68,6 @@ public class main {
   private static void recomenda(){
 
     for (User user : listaUsers) {
-      
       for (Objeto objeto : listaObjs) {
 
             if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1()) & objeto.getFormato().equalsIgnoreCase(user.getFormatoPreferido()) & 
@@ -87,7 +87,6 @@ public class main {
   private static void recomenda2(){
 
     for (User user : listaUsers) {
-      
       for (Objeto objeto : listaObjs) {
 
             if (objeto.getArea().equalsIgnoreCase(user.getPreferencia2()) & ! user.getRecomendacoes().contains(objeto)){ user.adicionaRecomendacao(objeto);
@@ -102,20 +101,11 @@ public class main {
 
     for (User user : listaUsers) {
 
-      /* 
-      while(true){
-        int index = (int)(Math.random() * listaObjs.size());
-        if ( ! user.getRecomendacoes().contains(listaObjs.get(index))){ 
-          user.adicionaRecomendacao(listaObjs.get(index));
-          break;
-      } */
-
       Collections.shuffle(listaObjs);
+      
       for (Objeto objeto : listaObjs) {
-
             if ( ! user.getRecomendacoes().contains(objeto)){ user.adicionaRecomendacao(objeto);
               break;}
     }  
-
   }
 }}
