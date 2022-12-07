@@ -2,6 +2,7 @@ package main;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import model.User.*;
 import model.Objeto;
@@ -33,6 +34,7 @@ public class main {
     //Leitura e inserção dos dados nas listas
 
       for (String string : conteudo_user) {
+
         String[] palavra = string.split(",");
         criarUser(palavra[0], palavra[1], palavra[2], palavra[3], palavra[4]);
       }
@@ -78,6 +80,42 @@ public class main {
             user.adicionaRecomendacao(objeto);}
             
       }
-    }
+    }  recomenda2();
   }
-}
+
+
+  private static void recomenda2(){
+
+    for (User user : listaUsers) {
+      
+      for (Objeto objeto : listaObjs) {
+
+            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia2()) & ! user.getRecomendacoes().contains(objeto)){ user.adicionaRecomendacao(objeto);
+              break;}
+      }
+
+    } recomenda3();
+  }
+
+
+  private static void recomenda3(){
+
+    for (User user : listaUsers) {
+
+      /* 
+      while(true){
+        int index = (int)(Math.random() * listaObjs.size());
+        if ( ! user.getRecomendacoes().contains(listaObjs.get(index))){ 
+          user.adicionaRecomendacao(listaObjs.get(index));
+          break;
+      } */
+
+      Collections.shuffle(listaObjs);
+      for (Objeto objeto : listaObjs) {
+
+            if ( ! user.getRecomendacoes().contains(objeto)){ user.adicionaRecomendacao(objeto);
+              break;}
+    }  
+
+  }
+}}
