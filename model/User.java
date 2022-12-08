@@ -1,4 +1,4 @@
-package main;
+package model;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ public class User {
     
     private ArrayList<Objeto> recomendacoes = new ArrayList<>();
 
-    User(String nome, String id, String preferencia1, String preferencia2, String formatoPreferido) {
+   public User(String nome, String id, String preferencia1, String preferencia2, String formatoPreferido) {
         this.nome = nome;
         this.id = id;
         this.preferencia1 = preferencia1;

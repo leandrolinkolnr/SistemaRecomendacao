@@ -1,4 +1,4 @@
-package main;
+package controller;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,12 +14,6 @@ public class ManipularTxt {
 
     public ManipularTxt() {
     }
-
-
-public File abrirArquivo(String path) {
-  return new File(path);
-}
-
 
 public ArrayList<String> lerArquivo(File file) {
     FileReader ler;

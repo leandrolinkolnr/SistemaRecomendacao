@@ -1,14 +1,13 @@
-package main;
+package view;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import model.User.*;
+import model.User;
 import model.Objeto;
 
 import controller.ManipularTxt;
-
 
 public class main {
     
@@ -23,6 +22,7 @@ public class main {
 
 
     ManipularTxt manipulador = new ManipularTxt();
+
 
 		File arquivo_user = new File(urlUSER);
 		ArrayList<String> conteudo_user = manipulador.lerArquivo(arquivo_user);
