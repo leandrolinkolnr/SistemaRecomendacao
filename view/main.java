@@ -31,6 +31,7 @@ public class main {
 		ArrayList<String> conteudo_obj = manipulador.lerArquivo(arquivo_obj);
 
 
+
     //Leitura e inserção dos dados nas listas
 
       for (String string : conteudo_user) {
@@ -44,6 +45,7 @@ public class main {
         criarOBJ(palavra[0], palavra[1], palavra[2]);
       }
 
+      
       recomenda();
 
 
@@ -75,11 +77,6 @@ public class main {
                                                  user.adicionaRecomendacao(objeto);}
       }
 
-      for (Objeto objeto : listaObjs) {
-            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1()) & user.getRecomendacoes().size() < 4 & ! user.getRecomendacoes().contains(objeto) ) {
-            user.adicionaRecomendacao(objeto);}
-            
-      }
     }  recomenda2();
   }
 
@@ -87,17 +84,30 @@ public class main {
   private static void recomenda2(){
 
     for (User user : listaUsers) {
+      
       for (Objeto objeto : listaObjs) {
-
-            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia2()) & ! user.getRecomendacoes().contains(objeto)){ user.adicionaRecomendacao(objeto);
-              break;}
+            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia1()) & user.getRecomendacoes().size() < 4 & ! user.getRecomendacoes().contains(objeto) ) {
+            user.adicionaRecomendacao(objeto);}
+            
       }
-
-    } recomenda3();
+    }  recomenda3();
   }
 
 
   private static void recomenda3(){
+
+    for (User user : listaUsers) {
+      for (Objeto objeto : listaObjs) {
+
+            if (objeto.getArea().equalsIgnoreCase(user.getPreferencia2()) & ! user.getRecomendacoes().contains(objeto) ){ user.adicionaRecomendacao(objeto);
+              break;}
+      }
+
+    } recomenda4();
+  }
+
+
+  private static void recomenda4(){
 
     for (User user : listaUsers) {
 

@@ -49,7 +49,15 @@ public class User {
     }
 
     public void listaRecomendacoes(){
-        System.out.println("Recomendacoes para o usuario " + nome + ": " + preferencia1 + " - " + preferencia2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("Usuario " + nome + ": ");
+        System.out.println("Preferencias: " + preferencia1 + " e " + preferencia2);
+        System.out.println("Formato preferido: " + formatoPreferido);
+        System.out.println();
+        System.out.println("Recomendações:");
+
         for (Objeto objeto : recomendacoes) {
             System.out.println(objeto.getNome());
         }
